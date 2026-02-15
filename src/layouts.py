@@ -40,15 +40,27 @@ def body_layout_tabs(df: pd.DataFrame) -> None:
         plot_response_hist(df)
 
         # TODO (IN-CLASS): Add a short interpretation sentence under the chart
-
+    st.caption("Most complaints are resolved within a short time, but a few take much longer.")
     with t2:
         st.subheader("Median Response Time by Borough")
         plot_borough_bar(df)
 
         # TODO (IN-CLASS): Add a second view here (e.g., count by borough)
 
+    st.subheader("Complaint Count by Borough")
+
+    counts = df["borough"].value_counts()
+    st.bar_chart(counts)
     with t3:
         st.subheader("Filtered Rows")
         st.dataframe(df, use_container_width=True, height=480)
 
         # TODO (OPTIONAL): Add st.download_button to export filtered rows
+        csv = df.to_csv(index=False).encode("utf-8")
+
+        st.download_button(
+            label="Download filtered data",
+            data=csv,
+            file_name="filtered_data.csv",
+            mime="text/csv",
+        )
