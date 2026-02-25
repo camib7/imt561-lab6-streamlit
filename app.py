@@ -6,6 +6,8 @@ from src.filters import render_filters, apply_filters
 from src.charts import plot_response_hist, plot_borough_bar
 from src.layouts import header_metrics, body_layout_tabs
 
+# Deployed Streamlit App:
+# https://imt561-lab6-app-dx2wq5krdgxgkqegtmpaz9.streamlit.app
 
 # -----------------------------
 # IMT 561 Streamlit Lab Starter
